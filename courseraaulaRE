@@ -1,0 +1,52 @@
+import re
+
+string  = "Thayane é uma pessoa linda".strip()
+print(string)
+if re.search("bonita", string):               #ACHA UMA CORRESPONDÊNCIA COMO find()
+    print(string)
+else:
+    print("Correspondência não encontrada")
+
+if re.search("^uma", string):                # ^ PARA ACHAR NO COMEÇO DA FRASE
+    print(string)
+else:
+    print("Não encontrado no começo da frase")
+
+new= "Computador é uma ótima invenção para a humanidade?"
+
+if re.search("^Comp\s+?", new):
+    print(new)
+else:
+    print("Correspondência não encontrada")
+
+import re
+
+texto = "abcde123"
+padrao = r"a...e"                          # Casa com "a", qualquer caractere, e "c"
+
+resultado = re.search(padrao, texto)
+if resultado:
+    print("Encontrado:", resultado.group())
+else:
+    print("Não encontrado.")
+
+frase = "my mother is 42 years old and I am 23 years old"
+fra= re.findall('[0-9]+', frase)
+print(f"foram encontradas essas correspondêncais {fra}")
+
+#Stracting host name using .find and string slicing
+
+email= 'Olá, meu nome é Thayane  e meu email é thayanesousa_ts@outlook.com '
+findat= email.find('@')
+print(findat)
+vazio= email.find(' ', findat)
+print(vazio)
+host= email[findat+1: vazio]
+print(host)
+#other way using .split (break slice)
+tay= email.split('@')
+print(tay[1])
+
+x = 'From: Using the : character'
+y = re.findall('^F.+:', x)
+print(y)
